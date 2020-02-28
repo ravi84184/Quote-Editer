@@ -18,7 +18,8 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning"
         tools:targetApi="n">
-        <activity android:name=".activity.PostListActivity"></activity>
+        <activity android:name=".ImageViewActivity"></activity>
+        <activity android:name=".activity.PostListActivity" />
         <activity android:name=".activity.BackgroundListActivity" />
         <activity android:name=".activity.CreatePosterActivity" />
         <activity android:name=".activity.ImagePickerActivity" />

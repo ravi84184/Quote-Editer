@@ -1,7 +1,7 @@
 package com.example.postcreator.adapter;
 
 import android.content.Context;
-import android.content.res.AssetManager;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.view.LayoutInflater;
@@ -12,12 +12,10 @@ import android.widget.ImageView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.postcreator.ImageViewActivity;
 import com.example.postcreator.R;
 import com.example.postcreator.model.PostModel;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.ArrayList;
 import java.util.List;
 
 public class PostListAdapter extends RecyclerView.Adapter<PostListAdapter.MyViewHolder> {
@@ -46,8 +44,15 @@ public class PostListAdapter extends RecyclerView.Adapter<PostListAdapter.MyView
     public void onBindViewHolder(@NonNull final MyViewHolder myViewHolder, final int position) {
         final byte[] image = stringArrayListCatID.get(position).getPostImage();
         final Bitmap bitmap = BitmapFactory.decodeByteArray(image, 0, image.length);
-       myViewHolder.raw_image.setImageBitmap(bitmap);
-
+        myViewHolder.raw_image.setImageBitmap(bitmap);
+        myViewHolder.raw_image.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent in1 = new Intent(mContext, ImageViewActivity.class);
+                in1.putExtra("image", stringArrayListCatID.get(position).getPostImage());
+                mContext.startActivity(in1);
+            }
+        });
     }
 
     @Override

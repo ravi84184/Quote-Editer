@@ -1,6 +1,8 @@
 package com.example.postcreator.model;
 
-public class PostModel {
+import java.io.Serializable;
+
+public class PostModel implements Serializable {
     int id;
     String title,size,color;
     byte[] bgImage,postImage;
